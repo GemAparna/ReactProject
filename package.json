@@ -2,7 +2,7 @@
   "dependencies": {
     "react-bootstrap-validation": "^0.1.11",
     "react-redux": "^8.0.2",
-    "react-router-dom": "^5.3.3",
+    "react-router-dom": "^5.2.0",
     "router": "^1.3.7"
   }
 }
