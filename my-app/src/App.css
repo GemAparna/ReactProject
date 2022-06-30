@@ -22,20 +22,24 @@ body{
     margin-top:30px;
     /* border: 3px solid rgb(20, 21, 20); */
     background-color:white;
+    border-radius: 4px;
 }
 h2{
     text-align: center;
+}
+.frontend button{
+    width:100%
 }
 .frontend:hover, .backend:hover{
     /* box-shadow: 10px 10px rgb(213, 236, 213); */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.backend{
+/* .backend{
     width: 70%;
     margin: auto;
     text-align: center;
     margin-top:30px;
-}
+} */
 
 .frontend .table-fixed tbody {
     height: 200px;
@@ -62,4 +66,7 @@ h2{
         clear: both;
         display: block;
     } */
+}
+.details{
+    width:70%;
 }

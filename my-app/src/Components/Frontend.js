@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 function Frontend(props) {
     return (
         <div>
@@ -15,12 +16,12 @@ function Frontend(props) {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            {/* <tr>
                                 <th scope="row" class="col-3">1</th>
-                                <td class="col-3">Mark</td>
-                                <td class="col-3">Otto</td>
-                                <td class="col-3">@mdo</td>
-                            </tr>
+                                <td class="col-3">{props.sno}</td>
+                                <td class="col-3">{props.name}</td>
+                                <td class="col-3">{props.comment}</td>
+                            </tr> */}
                             <tr class="table-success">
                                 <th scope="row" class="col-3">2</th>
                                 <td class="col-3">Jacob</td>
