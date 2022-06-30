@@ -1,1 +1,65 @@
+/* body{
+    background-color: rgb(181, 241, 208);
+} */
+body{
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.header{
+    text-align: center;
+    margin:auto;
+    color: rgb(232, 239, 240);
+    background-color: rgb(53, 110, 29);
+} 
 
+.frontend, .backend{
+    width: 70%;
+    margin: auto;
+    margin-top:30px;
+    /* border: 3px solid rgb(20, 21, 20); */
+    background-color:white;
+}
+h2{
+    text-align: center;
+}
+.frontend:hover, .backend:hover{
+    /* box-shadow: 10px 10px rgb(213, 236, 213); */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.backend{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    margin-top:30px;
+}
+
+.frontend .table-fixed tbody {
+    height: 200px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.frontend .table-fixed thead,
+.frontend .table-fixed tbody,
+.frontend .table-fixed tr,
+.frontend .table-fixed td,
+.frontend .table-fixed th {
+    display: block;
+}
+
+.frontend .table-fixed tbody td,
+.frontend .table-fixed tbody th,
+.frontend .table-fixed thead > tr > th {
+    float: left;
+    position: relative;
+
+    /* &::after {
+        content: '';
+        clear: both;
+        display: block;
+    } */
+}
