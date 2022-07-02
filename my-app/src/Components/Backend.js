@@ -17,24 +17,24 @@ function Backend(props) {
                             </tr>
                         </thead>
                         <tbody>
-                    {props.members?.map((item, key) => {
+                    {props.members?.map((object, key) => {
                         return (
-                            <tr key={item.sn}>
+                            <tr key={object.sn}>
                                 <td>{key + 1}</td>
-                                <td >{item.name}</td>
+                                <td >{object.name}</td>
                                 <td>
                                     <button type="button" class="btn btn-warning"
-                                        onClick={() => props.updateAllocation(item.sn)}
+                                        onClick={() => props.updateAllocation(object.sn)}
                                     >
-                                        {item.allocation ? "Yes" : "No"}
+                                        {object.allocation ? "Yes" : "No"}
                                     </button>
                                 </td>
-                                <td >{item.skills}</td>
+                                <td >{object.skills}</td>
                                 <td >
                                     <input
                                         type="text"
-                                        value={item.comments}
-                                        onChange={(e) => props.updateComment(item.sn, e)}
+                                        value={object.comments}
+                                        onChange={(e) => props.updateComment(object.sn, e)}
                                         style={{ width: "100%" }}
                                     />
                                 </td><br></br>

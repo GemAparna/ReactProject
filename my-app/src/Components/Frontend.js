@@ -1,5 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Icon} from 'react-icons-kit';
+import { eye } from 'react-icons-kit/feather/eye';
+
 
 
 function Frontend(props) {
@@ -17,24 +20,24 @@ function Frontend(props) {
                             </tr>
                         </thead>
                         <tbody>
-                    {props.members?.map((item, key) => {
+                    {props.members?.map((object, key) => {
                         return (
-                            <tr key={item.sn}>
+                            <tr key={object.sn}>
                                 <td>{key + 1}</td>
-                                <td >{item.name}</td>
+                                <td >{object.name}</td>
                                 <td>
                                     <button type="button" class="btn btn-success"
-                                        onClick={() => props.updateAllocation(item.sn)}
+                                        onClick={() => props.updateAllocation(object.sn)}
                                     >
-                                        {item.allocation ? "Yes" : "No"}
+                                        {object.allocation ? "Yes" : "No"}
                                     </button>
                                 </td>
-                                <td >{item.skills}</td>
+                                <td onClick={()=>props.viewskill(object.skills)}><Icon icon={eye}/></td>
                                 <td >
                                     <input
                                         type="text"
-                                        value={item.comments}
-                                        onChange={(e) => props.updateComment(item.sn, e)}
+                                        value={object.comments}
+                                        onChange={(e) => props.updateComment(object.sn, e)}
                                         style={{ width: "100%" }}
                                     />
                                 </td><br></br>

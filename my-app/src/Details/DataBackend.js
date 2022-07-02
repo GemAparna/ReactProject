@@ -1,4 +1,4 @@
-export const databackend = [
+export const backend = [
     {
         sn: 1,
         name: "Aparna",
