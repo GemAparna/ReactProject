@@ -2,10 +2,13 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Icon} from 'react-icons-kit';
 import { eye } from 'react-icons-kit/feather/eye';
+import Modal from "./Modal";
+import useModal from './useModal';
 
 
 
 function Frontend(props) {
+    const {isShowing, toggle} = useModal();
     return (
         <div> 
           <div className="table-responsive"> 
@@ -32,7 +35,11 @@ function Frontend(props) {
                                         {object.allocation ? "Yes" : "No"}
                                     </button>
                                 </td>
-                                <td onClick={()=>props.viewskill(object.skills)}><Icon icon={eye}/></td>
+                                <td ><Icon icon={eye} onClick={toggle}/>
+                                     <Modal
+                                       isShowing={isShowing}
+                                         hide={toggle}
+                                        /></td>
                                 <td >
                                     <input
                                         type="text"
@@ -40,6 +47,7 @@ function Frontend(props) {
                                         onChange={(e) => props.updateComment(object.sn, e)}
                                         style={{ width: "100%" }}
                                     />
+
                                 </td><br></br>
                             </tr>
                         )

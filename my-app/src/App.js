@@ -1,72 +1,94 @@
 import Navbar from "./Components/Navbar";
 import "./App.css";
 import Frontend from "./Components/Frontend";
-import {frontend} from '../src/Details/DataFrontend';
+import {datafrontend} from '../src/Details/DataFrontend';
 import Backend from "./Components/Backend";
-import {backend} from "../src/Details/DataBackend";
+import {databackend} from "../src/Details/DataBackend";
 import Allocation from "./Components/Allocation";
-
 import React, { useEffect, useState } from 'react';
-
 
  
 function App() {
+  // Frontend Table Records
+  const [frontendObjects, setfrontendObjects] = useState([]);
+ 
+  useEffect(() => {
+    if (!localStorage.getItem("datafrontend"))
+      localStorage.setItem("datafrontend", JSON.stringify(datafrontend));
+
+    var frontendMems = localStorage.getItem("datafrontend");
+    setfrontendObjects(JSON.parse(frontendMems));
+  }, []);
+
+  const AllocatingFontend = (sn) => {
+    for (var i = 0; i < frontendObjects.length; i++) {
+      if (frontendObjects[i].sn === sn) {
+        frontendObjects[i].allocation = true;
+        setallocatedObjects([...allocatedObjects, frontendObjects[i]]);
+        localStorage.setItem("allocated", JSON.stringify([...allocatedObjects, frontendObjects[i]]));
+
+        frontendObjects.splice(i, 1);
+        break;
+      };
+    }
+    localStorage.setItem("datafrontend", JSON.stringify(frontendObjects));
+  };
+
+  //Backend Table Records
   
-  const [frontendMembers, setFrontendMembers] = useState([]);
-  const [backendMembers, setBackendMembers] = useState([]);
-  const [allocatedMembers, setAllocatedMembers] = useState([]);
+  const [backendObjects, setbackendObjects] = useState([]);
 
   useEffect(() => {
-    if (!localStorage.getItem("frontend"))
-      localStorage.setItem("frontend", JSON.stringify(frontend));
+      if (!localStorage.getItem("databackend"))
+      localStorage.setItem("databackend", JSON.stringify(databackend));
 
-    if (!localStorage.getItem("backend"))
-      localStorage.setItem("backend", JSON.stringify(backend));
+    var backendMems = localStorage.getItem("databackend");
+    setbackendObjects(JSON.parse(backendMems));
+
   }, []);
 
-  useEffect(() => {
-    var frontendMems = localStorage.getItem("frontend");
-    setFrontendMembers(JSON.parse(frontendMems));
+  const AllocatingBackend = (sn) => {
+    for (var i = 0; i < backendObjects.length; i++) {
+      if (backendObjects[i].sn ===sn) {
+        backendObjects[i].allocation = true;
+        setallocatedObjects([...allocatedObjects, backendObjects[i]]);
+        localStorage.setItem("allocated", JSON.stringify([...allocatedObjects, backendObjects[i]]));
 
-    var backendMems = localStorage.getItem("backend");
-    setBackendMembers(JSON.parse(backendMems));
-  }, []);
+        backendObjects.splice(i, 1);
+        break;
+      };
+    }
+    localStorage.setItem("databackend", JSON.stringify(backendObjects));
+  };
+
+
+// Project Allocated Records
+
+  const [allocatedObjects, setallocatedObjects] = useState([]);
 
   useEffect(() => {
     var allocatedMems = localStorage.getItem("allocated");
     if (allocatedMems)
-      setAllocatedMembers(JSON.parse(allocatedMems));
+      setallocatedObjects(JSON.parse(allocatedMems));
   }, []);
 
-  const allocateFrontendMember = (sn) => {
-    for (var i = 0; i < frontendMembers.length; i++) {
-      if (frontendMembers[i].sn === sn) {
-        frontendMembers[i].allocation = true;
-        setAllocatedMembers([...allocatedMembers, frontendMembers[i]]);
-        localStorage.setItem("allocated", JSON.stringify([...allocatedMembers, frontendMembers[i]]));
+  //Updating Comment Box
 
-        frontendMembers.splice(i, 1);
-        break;
-      };
-    }
-    localStorage.setItem("frontend", JSON.stringify(frontendMembers));
+  const updateComment = (sn,event) => {
+    const value = event.target.value;
+    if (containObject(sn, frontendObjects)) {
+      const newList = updatedCommentList(frontendObjects, sn, value);
+      setfrontendObjects(newList);
+      localStorage.setItem("datafrontend", JSON.stringify(newList));
+    } 
+    else if (containObject(sn, backendObjects)) {
+      const newList = updatedCommentList(backendObjects, sn, value);
+      setbackendObjects(newList);
+      localStorage.setItem("databackend", JSON.stringify(newList));
+    } 
   };
-
-  const allocateBackendMember = (sn) => {
-    for (var i = 0; i < backendMembers.length; i++) {
-      if (backendMembers[i].sn ===sn) {
-        backendMembers[i].allocation = true;
-        setAllocatedMembers([...allocatedMembers, backendMembers[i]]);
-        localStorage.setItem("allocated", JSON.stringify([...allocatedMembers, backendMembers[i]]));
-
-        backendMembers.splice(i, 1);
-        break;
-      };
-    }
-    localStorage.setItem("backend", JSON.stringify(backendMembers));
-  };
-
-  function containsMember(sn, list) {
+  
+  function containObject(sn, list) {
     for (let i = 0; i < list.length; i++) {
       if (list[i].sn === sn) {
         return true;
@@ -89,40 +111,26 @@ function App() {
     return newList;
   };
 
-  const updateComment = (sn, event) => {
-    const value = event.target.value;
-    if (containsMember(sn, frontendMembers)) {
-      const newList = updatedCommentList(frontendMembers, sn, value);
-      setFrontendMembers(newList);
-      localStorage.setItem("frontend", JSON.stringify(newList));
-    } else if (containsMember(sn, backendMembers)) {
-      const newList = updatedCommentList(backendMembers, sn, value);
-      setBackendMembers(newList);
-      localStorage.setItem("backend", JSON.stringify(newList));
-    } else {
-      const newList = updatedCommentList(allocatedMembers, sn, value);
-      setAllocatedMembers(newList);
-      localStorage.setItem("allocated", JSON.stringify(newList));
-    }
-  };
-
+  
+//
   return (
     <div className="App">
       <Navbar/>
       <div className="frontend">
         <h2>Frontend Developers</h2>
       <Frontend
-        members={frontendMembers}
-        updateAllocation={allocateFrontendMember}
+        members={frontendObjects}
+        updateAllocation={AllocatingFontend}
         updateComment={updateComment}
       />
+  
       </div>
       <br></br>
        <div className="backend">
         <h2>Backend Developers</h2>
       <Backend
-        members={backendMembers}
-        updateAllocation={allocateBackendMember}
+        members={backendObjects}
+        updateAllocation={AllocatingBackend}
         updateComment={updateComment}
       />
       </div>
@@ -130,12 +138,13 @@ function App() {
        <div className="frontend">
         <h2>Project Allocation</h2>
       <Allocation 
-         members={allocatedMembers}
+         members={allocatedObjects}
       />
       </div>
       <br />
     </div>
   );
 }
+//
 
 export default App;

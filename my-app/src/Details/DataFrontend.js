@@ -1,4 +1,4 @@
-export const frontend = [
+export const datafrontend = [
     {
         sn: 1,
         name: "Aparna",
