@@ -23,50 +23,35 @@ body{
     /* border: 3px solid rgb(20, 21, 20); */
     background-color:white;
     border-radius: 4px;
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid black;
 }
-h2{
+.frontend thead th, .backend thead th{
+    position: relative;
+}
+.backend h2 {
     text-align: center;
+    color: rgba(146, 146, 13, 0.751);
+    
 }
-.frontend button{
-    width:100%
-}
-.frontend:hover, .backend:hover{
-    /* box-shadow: 10px 10px rgb(213, 236, 213); */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-/* .backend{
-    width: 70%;
-    margin: auto;
+.frontend h2 {
     text-align: center;
-    margin-top:30px;
+    color: rgba(14, 127, 50, 0.751);
+    
+}
+/* .frontend{
+    border: 3px solid rgba(14, 127, 50, 0.751);
+}
+.backend{
+    border: 3px solid  rgba(146, 146, 13, 0.751);;
 } */
 
-.frontend .table-fixed tbody {
-    height: 200px;
-    overflow-y: auto;
-    width: 100%;
+.frontend button, .backend button{
+    /* width:100%; */
+    width:120px;
+    /* background-color: rgb(85, 216, 29); */
 }
-
-.frontend .table-fixed thead,
-.frontend .table-fixed tbody,
-.frontend .table-fixed tr,
-.frontend .table-fixed td,
-.frontend .table-fixed th {
-    display: block;
-}
-
-.frontend .table-fixed tbody td,
-.frontend .table-fixed tbody th,
-.frontend .table-fixed thead > tr > th {
-    float: left;
-    position: relative;
-
-    /* &::after {
-        content: '';
-        clear: both;
-        display: block;
-    } */
-}
-.details{
-    width:70%;
+.frontend:hover, .backend:hover{
+    box-shadow: 0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

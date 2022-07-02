@@ -1,49 +1,55 @@
 import Navbar from "./Components/Navbar";
-import "./App.css"
+import "./App.css";
 import Frontend from "./Components/Frontend";
+import {datafrontend} from '../src/Details/DataFrontend';
 import Backend from "./Components/Backend";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import Details from './Details';
+import {databackend} from "../src/Details/DataBackend"
+import React, { useEffect, useState } from 'react';
+
+
  
 function App() {
-  return (
-  
-    <div className="division">
-   <Router>
-   <Navbar/>
-  <ul>
-     <li>
-     <Link to="/details">Add New Entries</Link>
-     </li>
-  </ul>
-       
- <Switch>
- <Route exact path="/details">
-     <Details />
-   </Route>
- </Switch>
-  <br></br> 
-   <h2>Frontend</h2>
-   <div className="frontend">
-   <Frontend/>
-   </div>
 
+
+  const [datafrontendMembers, setdatafrontendMembers] = useState([]);
+  const [databackendMembers, setdatabackendMembers] = useState([]);
+
+  useEffect(() => {
+    if (!localStorage.getItem("datafrontend"))
+      localStorage.setItem("datafrontend", JSON.stringify(datafrontend));
+
+      if (!localStorage.getItem("databackend"))
+      localStorage.setItem("databackend", JSON.stringify(databackend));
+  }, []);
+
+  useEffect(() => {
+    var datafrontendMems = localStorage.getItem("datafrontend");
+    setdatafrontendMembers(JSON.parse(datafrontendMems));
+
+    var databackendMems = localStorage.getItem("databackend");
+    setdatabackendMembers(JSON.parse(databackendMems));
+
+  }, []);
+
+  
+  return (
+    <>
+    <div className="division">
+   <Navbar/>
    <br></br>
    <div className="frontend">
-   <h2>Frontend</h2>
-   <Frontend/>
-   </div>
-   <div className="backend">
-   <h2>Backend</h2>
-   <Backend/>
-   </div>
-   </Router>
+    <h2>Frontend Developers</h2>
+       < Frontend
+        members={datafrontendMembers}
+      />
+      </div>
+      <br></br>
+      <div className="backend my-5">
+        <h2>Backend Developers</h2>
+        <Backend members={databackendMembers}/>
+      </div>
     </div>
+    </>
   );
 }
 
