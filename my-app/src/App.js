@@ -147,15 +147,6 @@ const {isShowing, toggle} = useModal();
       />
       </div>
       <br />
-
-      {/* checking modal working */}
-      <div className="App">
-      <button className="button-default" onClick={toggle}>Show Modal</button>
-      <Modal
-        isShowing={isShowing}
-        hide={toggle}
-      />
-      </div>
     </div>
   );
 }

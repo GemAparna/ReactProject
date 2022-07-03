@@ -1,72 +1,72 @@
 export const databackend = [
     {
         sn: 1,
-        name: "Aparna",
+        name: "Aastha",
         allocation: false,
-        skills: "XYZ",
+        skills: "Ruby",
         comments: ""
     },
     {
         sn: 2,
-        name: "Chanchal",
+        name: "Anushka",
         allocation: false,
-        skills: "PQR",
+        skills: "PHP",
         comments: ""
     },
     {
         sn: 3,
-        name: "Bharat",
+        name: "Aryan",
         allocation: false,
-        skills: "PQR",
+        skills: "Java",
         comments: ""
     },
     {
         sn: 4,
-        name: "Ayush",
+        name: "Shivam",
         allocation: false,
-        skills: "PQR",
+        skills: "Golang",
         comments: ""
     },
     {
         sn: 5,
-        name: "Shreyansh",
+        name: "Jyoti",
         allocation: false,
-        skills: "PQR",
+        skills: "Perl",
         comments: ""
     },
     {
         sn: 6,
-        name: "Mehak",
+        name: "Kanak",
         allocation: false,
-        skills: "PQR",
+        skills: "Python",
         comments: ""
     },
     {
         sn: 7,
-        name: "Kritika",
+        name: "Unnati",
         allocation: false,
-        skills: "PQR",
+        skills: "Ruby",
         comments: ""
     },
     {
         sn: 8,
-        name: "Mehak",
+        name: "Aprajita",
         allocation: false,
-        skills: "PQR",
+        skills: "Javascript",
         comments: ""
     },
     {
         sn: 9,
-        name: "Shivansh",
+        name: "Sameeksha",
         allocation: false,
-        skills: "PQR",
+        skills: "C#",
         comments: ""
     },
     {
         sn: 10,
-        name: "Deeksha",
+        name: "Jhanvi",
         allocation: false,
-        skills: "PQR",
+        skills: "Node",
         comments: ""
     }
 ];
