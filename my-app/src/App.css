@@ -1,15 +1,15 @@
 /* body{
     background-color: rgb(181, 241, 208);
 } */
-body{
+/* body{
     background-image: url('background.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-attachment: fixed;
+    /* background-attachment: fixed; 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.header{
+} */
+/* .header{
     text-align: center;
     margin:auto;
     color: rgb(232, 239, 240);
@@ -20,7 +20,7 @@ body{
     width: 70%;
     margin: auto;
     margin-top:30px;
-    /* border: 3px solid rgb(20, 21, 20); */
+    /* border: 3px solid rgb(20, 21, 20); 
     background-color:white;
     border-radius: 4px;
     height: 300px;
@@ -40,17 +40,17 @@ body{
     color: rgba(14, 127, 50, 0.751);
     
 }
-/* .frontend{
+.frontend{
     border: 3px solid rgba(14, 127, 50, 0.751);
 }
 .backend{
     border: 3px solid  rgba(146, 146, 13, 0.751);;
-} */
+} 
 
 .frontend button, .backend button{
-    /* width:100%; */
+    /* width:100%; 
     width:120px;
-    /* background-color: rgb(85, 216, 29); */
+    /* background-color: rgb(85, 216, 29); 
 }
 .frontend, .backend{
     box-shadow: 0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -91,4 +91,71 @@ body{
 .modal-header {
   display: flex;
   justify-content: flex-end;
-}
+}*/
+ .App {
+    text-align: center;
+    padding-top: 2rem;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    opacity: .5;
+  } 
+   
+  .modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+  }
+  
+  .modal {
+    z-index: 100;
+    background: white;
+    position: relative;
+    margin: 1.75rem auto;
+    border-radius: 3px;
+    max-width: 500px;
+    padding: 2rem;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .modal-close-button {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    opacity: .3;
+    cursor: pointer;
+    border: none;
+  }
+  
+  button {
+    font-size: .9rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 3px;
+    padding: .3rem 1rem;
+    margin-left: .5rem;
+  }
+  
+  .button-default {
+    background: #247BA0;
+    color: #fff;
+  }
+  

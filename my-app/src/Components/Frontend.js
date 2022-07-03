@@ -4,6 +4,7 @@ import {Icon} from 'react-icons-kit';
 import { eye } from 'react-icons-kit/feather/eye';
 import Modal from "./Modal";
 import useModal from './useModal';
+// import { useModal } from 'react-hooks-use-modal';
 
 
 
@@ -23,7 +24,7 @@ function Frontend(props) {
                             </tr>
                         </thead>
                         <tbody>
-                    {props.members?.map((object, key) => {
+                    {props.rows?.map((object, key) => {
                         return (
                             <tr key={object.sn}>
                                 <td>{key + 1}</td>

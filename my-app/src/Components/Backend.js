@@ -17,7 +17,7 @@ function Backend(props) {
                             </tr>
                         </thead>
                         <tbody>
-                    {props.members?.map((object, key) => {
+                    {props.rows?.map((object, key) => {
                         return (
                             <tr key={object.sn}>
                                 <td>{key + 1}</td>

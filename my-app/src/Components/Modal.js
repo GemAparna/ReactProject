@@ -12,11 +12,12 @@ const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
           </button>
         </div>
         <p>
-          Skills
+          Hello, I'm a modal.
         </p>
       </div>
     </div>
   </React.Fragment>, document.body
 ) : null;
+
 
 export default Modal;
