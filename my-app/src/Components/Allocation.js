@@ -18,6 +18,7 @@ function Allocation(props) {
                             </tr>
                         </thead>
                         <tbody>
+                            
                     {props.rows?.map((object, key) => {
                         return (
                             <tr key={object.sn}>
@@ -25,7 +26,7 @@ function Allocation(props) {
                                 <td >{object.name}</td>
                                 <td>
                                     <button type="button" class="btn btn-success"
-                                        onClick={() => props.updateAllocation(object.sn)}
+                                        onClick={() => props.Allocation(object.sn)}
                                     >
                                         {object.allocation ? "Yes" : "No"}
                                     </button>

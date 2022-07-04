@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import Navbar from "./Components/Navbar";
 import "./App.css";
 import Frontend from "./Components/Frontend";
@@ -5,21 +6,21 @@ import {datafrontend} from '../src/Details/DataFrontend';
 import Backend from "./Components/Backend";
 import {databackend} from "../src/Details/DataBackend";
 import Allocation from "./Components/Allocation";
-import React, { useEffect, useState } from 'react';
-import Modal from "./Components/Modal";
-import useModal from './Components/useModal';
-
  
 function App() {
+
+  const [allocatedObjects, setallocatedObjects] = useState([]);
+ 
   // Frontend Table Records
+
   const [frontendObjects, setfrontendObjects] = useState([]);
  
   useEffect(() => {
     if (!localStorage.getItem("datafrontend"))
       localStorage.setItem("datafrontend", JSON.stringify(datafrontend));
 
-    var frontendMems = localStorage.getItem("datafrontend");
-    setfrontendObjects(JSON.parse(frontendMems));
+    var frontendData = localStorage.getItem("datafrontend");
+    setfrontendObjects(JSON.parse(frontendData));
   }, []);
 
   const AllocatingFontend = (sn) => {
@@ -27,7 +28,7 @@ function App() {
       if (frontendObjects[i].sn === sn) {
         frontendObjects[i].allocation = true;
         setallocatedObjects([...allocatedObjects, frontendObjects[i]]);
-        localStorage.setItem("allocated", JSON.stringify([...allocatedObjects, frontendObjects[i]]));
+        localStorage.setItem("datallocated", JSON.stringify([...allocatedObjects, frontendObjects[i]]));
 
         frontendObjects.splice(i, 1);
         break;
@@ -44,8 +45,8 @@ function App() {
       if (!localStorage.getItem("databackend"))
       localStorage.setItem("databackend", JSON.stringify(databackend));
 
-    var backendMems = localStorage.getItem("databackend");
-    setbackendObjects(JSON.parse(backendMems));
+    var backendData = localStorage.getItem("databackend");
+    setbackendObjects(JSON.parse(backendData));
 
   }, []);
 
@@ -54,7 +55,7 @@ function App() {
       if (backendObjects[i].sn ===sn) {
         backendObjects[i].allocation = true;
         setallocatedObjects([...allocatedObjects, backendObjects[i]]);
-        localStorage.setItem("allocated", JSON.stringify([...allocatedObjects, backendObjects[i]]));
+        localStorage.setItem("datallocated", JSON.stringify([...allocatedObjects, backendObjects[i]]));
 
         backendObjects.splice(i, 1);
         break;
@@ -66,14 +67,14 @@ function App() {
 
 // Project Allocated Records
 
-  const [allocatedObjects, setallocatedObjects] = useState([]);
-
   useEffect(() => {
-    var allocatedMems = localStorage.getItem("allocated");
-    if (allocatedMems)
-      setallocatedObjects(JSON.parse(allocatedMems));
+    var allocatedData = localStorage.getItem("datallocated");
+    if (allocatedData)
+      setallocatedObjects(JSON.parse(allocatedData));
   }, []);
 
+ 
+ 
   //Updating Comment Box
 
   const updateComment = (sn,event) => {
@@ -116,7 +117,6 @@ function App() {
   
 //
 
-const {isShowing, toggle} = useModal();
 
   return (
     <div >
@@ -125,7 +125,7 @@ const {isShowing, toggle} = useModal();
         <h2>Frontend Developers</h2>
       <Frontend
         rows={frontendObjects}
-        updateAllocation={AllocatingFontend}
+        Allocation={AllocatingFontend}
         updateComment={updateComment}
       />
   
@@ -135,7 +135,7 @@ const {isShowing, toggle} = useModal();
         <h2>Backend Developers</h2>
       <Backend
         rows={backendObjects}
-        updateAllocation={AllocatingBackend}
+        Allocation={AllocatingBackend}
         updateComment={updateComment}
       />
       </div>

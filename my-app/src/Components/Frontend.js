@@ -31,7 +31,7 @@ function Frontend(props) {
                                 <td >{object.name}</td>
                                 <td>
                                     <button type="button" class="btn btn-success"
-                                        onClick={() => props.updateAllocation(object.sn)}
+                                        onClick={() => props.Allocation(object.sn)}
                                     >
                                         {object.allocation ? "Yes" : "No"}
                                     </button>

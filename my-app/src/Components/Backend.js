@@ -24,7 +24,7 @@ function Backend(props) {
                                 <td >{object.name}</td>
                                 <td>
                                     <button type="button" class="btn btn-warning"
-                                        onClick={() => props.updateAllocation(object.sn)}
+                                        onClick={() => props.Allocation(object.sn)}
                                     >
                                         {object.allocation ? "Yes" : "No"}
                                     </button>
