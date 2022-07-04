@@ -26,6 +26,7 @@ function App() {
   const AllocatingFontend = (sn) => {
     for (var i = 0; i < frontendObjects.length; i++) {
       if (frontendObjects[i].sn === sn) {
+
         frontendObjects[i].allocation = true;
         setallocatedObjects([...allocatedObjects, frontendObjects[i]]);
         localStorage.setItem("datallocated", JSON.stringify([...allocatedObjects, frontendObjects[i]]));
@@ -102,7 +103,7 @@ function App() {
 
   const updatedCommentRecord = (Record, sn, comment) => {
     const newRecord = Record.map((item) => {
-      if (item.sn === sn) {
+      if (item.sn === sn) { 
         const updatedItem = {
           ...item,
           comments: comment,
